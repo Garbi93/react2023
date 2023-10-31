@@ -10,7 +10,13 @@ function App() {
 
 function MyComp() {
   const name = "흥민";
-  return <div>{name}</div>;
+  return (
+    <>
+      <div style={{ backgroundColor: "skyblue", marginLeft: "5px" }}>
+        {name}
+      </div>
+    </>
+  );
 }
 
 export default App;
