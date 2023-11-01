@@ -1,17 +1,11 @@
-export function MyBox() {
-  return null;
+function MyBox() {
+  return (
+    <div>
+      <h1>THIS IS MY BOX</h1>
+    </div>
+  );
 }
 
-// 한파일에 여러 component를 내보내기가 가능하다
-export function MyElem() {
-  return null;
-}
-
-export function MyContainer() {
-  return null;
-}
-
-// 변수,객체 도 내보내기가 가능하다
-export let name = "손흥민";
-export const address = "신촌";
-export const person = { name: "이강인", team: "파리" };
+export const country = "프랑스";
+export const person = { name: "son", age: 33 };
+export default MyBox;
