@@ -1,21 +1,20 @@
 function App() {
   return (
     <>
-      <MyComp value="흥민" address="신촌" />
-      <MyComp value="강인" address="강남" />
+      <MyComp name={"흥민"} address={"신촌"} age={33} city={"서울"} />
+      <MyComp address={"강남"} age={22} city={"부산"} />
+      <MyComp address={"강남"} city={"부산"} />
+      <MyComp name="희찬" age={66} address="파리" city="프랑스" />
     </>
   );
 }
 
-// {value:"흥민",address:"신촌"}
-function MyComp({ value, address }) {
-  // 바로 구조분해 할당하여 props를 분해해 주기
-  // 메뉴얼에서는 props를 바로 사용하기 보단 구조분해할당 하여 사용해 주는것이 더 많았다.
+function MyComp({ name = "*기본값 할당 가능*", address, age = 100, city }) {
   return (
     <div>
-      <h1>
-        {value}(은)는 {address}에 산다.
-      </h1>
+      <p>
+        {name}은 {age}살 이고 {address}, {city}에 산다
+      </p>
     </div>
   );
 }
