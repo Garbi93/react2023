@@ -1,17 +1,18 @@
-import aaggee, { city } from "./component/MyElem";
-// default로 export한 것은 한개만 받아오면 된다. 그래서 아무거나 써도 export 한것이 잘 들어온다. // import할때에도 이름을 맞춰줘야한다
-import Min, { country, person } from "./component/MyBox";
+// 우연히 임포트한 명이 동일할 때에는 어떻게 될까??
+// 내가 만든 파일이 아니라면 별칭을 부여 할 수 있다
+import MyBox, { address } from "./component/MyBox";
+import MyElem, { address as myAddress } from "./component/MyElem";
+
+// as로 named export 값을 import할 때 별칭을 줄 수 있음
+// 같은 별칭을 사용할때에 오류를 해결 하기 위해
 
 function App() {
   return (
     <>
-      <h1>{city}</h1>
-      <h1>{aaggee}</h1>
-      <Min />
-      <h1>
-        {person.age}, {person.name}
-      </h1>
-      <h1>{country}</h1>
+      <h1>{address}</h1>
+      <h1>{myAddress}</h1>
+      <MyElem />
+      <MyBox />
     </>
   );
 }
