@@ -1,22 +1,17 @@
-import {
-  MyBox,
-  MyContainer,
-  MyElem,
-  name,
-  address,
-  person,
-} from "./component/MyBox"; // import받는 component에서는 여러개를 받아오는것도 가능하다.
+import aaggee, { city } from "./component/MyElem";
+// default로 export한 것은 한개만 받아오면 된다. 그래서 아무거나 써도 export 한것이 잘 들어온다. // import할때에도 이름을 맞춰줘야한다
+import Min, { country, person } from "./component/MyBox";
 
 function App() {
-  console.log("name", name);
-  console.log("address", address);
-  console.log("person", person);
-
   return (
     <>
-      <MyBox />
-      <MyElem />
-      <MyContainer />
+      <h1>{city}</h1>
+      <h1>{aaggee}</h1>
+      <Min />
+      <h1>
+        {person.age}, {person.name}
+      </h1>
+      <h1>{country}</h1>
     </>
   );
 }
