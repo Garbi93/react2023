@@ -1,36 +1,52 @@
-import { Button, useToast } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 
 function App() {
-  const toast = useToast();
   return (
     <>
-      <Button
-        onClick={() =>
-          toast({
-            title: "저장 완료",
-            description: "게시물이 저장되었습니다.",
-            duration: 2000,
-            position: "top",
-            isClosable: true,
-          })
-        }
-      >
-        토스트 띄우기
+      <Button colorScheme="messenger">lorem.</Button>
+      <Button colorScheme="red">Lorem.</Button>
+      <Button colorScheme="yellow">A.</Button>
+      <Button colorScheme="orange">Tempore!</Button>
+      <Button colorScheme="teal" size={"sm"}>
+        Architecto.
       </Button>
-      <Button
-        onClick={() =>
-          toast({
-            title: "저장 실패",
-            description: "게시물이 저장되지 않았습니다.",
-            duration: 2000,
-            position: "top",
-            isClosable: true,
-            status: "error",
-          })
-        }
-      >
-        토스트 띄우기
+      <Button colorScheme="blackAlpha" size={"lg"}>
+        Nemo.
       </Button>
+      <Button colorScheme="green" variant={"outline"}>
+        Atque!
+      </Button>
+      <Button colorScheme="orange" variant={"ghost"}>
+        Suscipit?
+      </Button>
+      <Button colorScheme="cyan" variant={"link"}>
+        4Obcaecati?
+      </Button>
+      <Button leftIcon={<EmailIcon />}>Laudantium?</Button>
+      <Button isLoading>Distinctio.</Button>
+      <Button isLoading loadingText={"전송중"}>
+        Exercitationem!
+      </Button>
+      <Button rightIcon={<PhoneIcon />}>Ipsam?</Button>
+      <Button>Aliquam!</Button>
+      <Button>Quia.</Button>
+      <Button>Officiis!</Button>
+      <Button>Error!</Button>
+      <Button>Amet!</Button>
+      <Button>Maiores!</Button>
+      <Button>Ex?</Button>
+      <Button>Similique?</Button>
+      <Button>Dolorum.</Button>
+      <Button>Quam?</Button>
+      <Button>Ratione.</Button>
+      <Button>Modi?</Button>
+      <Button>Culpa!</Button>
+      <Button>Repellendus?</Button>
+      <Button>Officiis?</Button>
+      <Button>Fuga!</Button>
+      <Button>Natus?</Button>
+      <Button>Quas.</Button>
     </>
   );
 }
