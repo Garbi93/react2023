@@ -1,14 +1,37 @@
-import { Box, Flex, FormControl, FormLabel, Switch } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 
 function App() {
   return (
     <div>
-      <Box>
-        <FormControl display={"flex"} alignItems={"center"}>
-          <FormLabel mb={0}>알림을 받으시겠습니까??</FormLabel>
-          <Switch size={"lg"} colorScheme="orange" />
-        </FormControl>
+      <Box w={"480px"}>
+        <Image src="https://bit.ly/dan-abramov" alt="부자형" />
       </Box>
+      <Box>
+        <Image boxSize={"100px"} src="https://bit.ly/dan-abramov" />
+      </Box>
+      <Box>
+        <Image boxSize={"200px"} src="https://bit.ly/dan-abramov" />
+      </Box>
+      <Box>
+        <Image
+          borderRadius={"full"}
+          boxSize={"100px"}
+          src="https://bit.ly/dan-abramov"
+        />
+      </Box>
+      <Box>
+        <Image
+          boxSize={"100px"}
+          src="abcd.jpg"
+          fallbackSrc="https://via.placeholder.com/150"
+        />
+      </Box>
+      <Box></Box>
+      <Box></Box>
+      <Box></Box>
+      <Box></Box>
+      <Box></Box>
+      <Box></Box>
     </div>
   );
 }
