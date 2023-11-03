@@ -1,15 +1,22 @@
-import { MyLink } from "./component/MyLink";
+import React from "react";
+import { Card, CardBody } from "@chakra-ui/react";
 
-function App() {
+function MyBox({ color, bg, children }) {
   return (
     <>
-      <MyLink to="https://www.naver.com">naver 로</MyLink>
-      <MyLink to="https://www.daum.net">daum 으로</MyLink>
-      {/*
-  <a href="https://www.naver.com">naver 로</a>  
-  <a href="https://www.daum.net">daum 으로</a>
-  */}
+      <Card color={color} bg={bg}>
+        <CardBody>{children}</CardBody>
+      </Card>
     </>
+  );
+}
+function App(props) {
+  return (
+    <div>
+      <MyBox color="skyblue" bg="gold">
+        이건 children입니다.
+      </MyBox>
+    </div>
   );
 }
 
