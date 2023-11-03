@@ -28,6 +28,11 @@ function App() {
       >
         Button3
       </MyComp>
+      <MyComp
+        executeClick={() => console.log("한줄일때 중괄호 생략해서 출력3333")}
+      >
+        Button4
+      </MyComp>
     </div>
   );
 }
