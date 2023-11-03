@@ -1,27 +1,33 @@
-import React from "react";
 import { Button } from "@chakra-ui/react";
 
-function MyComp({ to, someProp }) {
-  someProp();
+function MyComp({ children, executeClick }) {
   return (
     <div>
-      <div>
-        <a href={to[0]}>link!!!</a>;
-      </div>
-      <div>
-        <Button onClick={someProp}>버튼</Button>
-      </div>
+      <Button onClick={executeClick}>{children}</Button>
     </div>
   );
 }
 
-function App(props) {
+function App() {
   function func1() {
-    console.log("func1 실행됨");
+    console.log("func1 실행");
   }
+
+  let func2 = () => {
+    console.log("arrow function 실행 111");
+  };
+
   return (
     <div>
-      <MyComp to={["https://www.naver.com"]} someProp={func1}></MyComp>
+      <MyComp executeClick={func1}>Button1</MyComp>
+      <MyComp executeClick={func2}>Button2</MyComp>
+      <MyComp
+        executeClick={() => {
+          console.log("arrow function 직접 넣어서 실행 2222");
+        }}
+      >
+        Button3
+      </MyComp>
     </div>
   );
 }
