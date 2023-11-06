@@ -1,38 +1,39 @@
-import React, { useState } from "react";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, List, ListItem } from "@chakra-ui/react";
 
-function App(props) {
-  // set... 메소드로 상태를 변경할 수 있음
-  // 이때에 react는 상태가 변경된 유무를 해당 값이 같은지 아닌지로 판단하여 re-render를 결정한다.
-  const [number, setNumber] = useState(0);
-  const [numberObject, setNumberObject] = useState({ number: 0 });
+function App() {
+  const arr = ["pizza", "돈까스", "햄버거", "김치찌개"];
+  const listItems = arr.map((item, index) => (
+    <ListItem key={index}>{item}</ListItem>
+  ));
 
-  function handleNumberObjectChange() {
-    // numberObject.number = numberObject.number + 1;
-    // setNumberObject(numberObject);
-    // 위와 같이 사용하지 말고
+  const arr2 = ["손흥민", "이강인", "김민재"];
+  // const players = arr2.map((e) => <ListItem>{e}</ListItem>);
 
-    // 복사해서 써야 한다.
-    const newNmberObject = { ...numberObject };
-    newNmberObject.number = newNmberObject.number + 1;
-    setNumberObject(newNmberObject);
-  }
+  const arr3 = ["라떼", "카푸치노", "믹스커피"];
 
+  const arr4 = [
+    { id: 0, name: "라떼" },
+    { id: 1, name: "에스프레소" },
+    { id: 2, name: "카푸치노" },
+  ];
   return (
     <div>
-      <Box>
-        <Button
-          onClick={() => {
-            setNumber(number + 1);
-          }}
-        >
-          number 변경
-        </Button>
-        <Text>{number}</Text>
+      <Box mb={3}>
+        <List>{listItems}</List>
       </Box>
       <Box>
-        <Button onClick={handleNumberObjectChange}>number 객체 변경</Button>
-        <Text>{numberObject.number}</Text>
+        <List mb={3}>
+          {arr2.map((e, index) => (
+            <ListItem key={index}>{e}</ListItem>
+          ))}
+        </List>
+      </Box>
+      <Box mb={3}>
+        <List>
+          {arr3.map((x, i) => (
+            <ListItem key={i}>{x}</ListItem>
+          ))}
+        </List>
       </Box>
     </div>
   );
