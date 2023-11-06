@@ -1,25 +1,27 @@
-import { Box, Button, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import React from "react";
 
-function App() {
-  const [number, setNumber] = useState(0);
-  console.log(number);
+function App(props) {
+  // HOOK : use로 시작하는 함수
+  // hook은 component 상단에 작성해야함
+  // 조건문 이나, 반복문, 종속된 함수 내부에 작성하면 안됨
+  function handle() {
+    // 종속 함수
+    // hook 호출 코드 작성 불가
+  }
 
-  const index = number % 3;
-  return (
-    <div>
-      <Button onClick={() => setNumber(number + 1)}>다음</Button>
-      <Box borderWidth={"3px"} borderColor={index == 0 ? "blue" : "black"}>
-        <Text>message1</Text>
-      </Box>
-      <Box borderWidth={"3px"} borderColor={index == 1 ? "blue" : "black"}>
-        <Text>message2</Text>
-      </Box>
-      <Box borderWidth={"3px"} borderColor={index == 2 ? "blue" : "black"}>
-        <Text>message3</Text>
-      </Box>
-    </div>
-  );
+  if (true) {
+    // 조건문
+    // hook 호출 코드 작성 불가
+  }
+
+  for (let i = 0; i < 3; i++) {
+    // 반복문
+    // hook 호출 코드 작성 불가
+  }
+
+  // =================================================================
+
+  return <div></div>;
 }
 
 export default App;
