@@ -1,17 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
-import { Input, Text } from "@chakra-ui/react";
-
-function MyInput() {
-  // 3. 객체를 구조분해 할당 하여 받아서 입맛에 맞게 사용하기
-  const { text, setText } = useContext(TextContext);
-  return <Input value={text} onChange={(e) => setText(e.target.value)} />;
-}
-
-function MyText() {
-  // 3. 객체를 구조분해 할당 하여 받아서 입맛에 맞게 사용하기
-  const { text } = useContext(TextContext);
-  return <Text>{text}</Text>;
-}
+import React, { createContext, useState } from "react";
+import { MyInput } from "./component/MyInput";
+import { MyText } from "./component/MyText";
 
 function App() {
   const [text, setText] = useState("");
@@ -27,6 +16,6 @@ function App() {
 }
 
 // 1. createContext 사용
-const TextContext = createContext(null);
+export const TextContext = createContext(null);
 
 export default App;
