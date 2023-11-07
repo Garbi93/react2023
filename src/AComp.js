@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
-import {Button} from "@chakra-ui/react";
-import {MessageContext} from "./App";
+import React, { useContext } from "react";
+import { Button } from "@chakra-ui/react";
+import { MessageContext } from "./App";
 
 export function AComp() {
   // 3. context사용하기 : useContext(Context)
-  const {setMessage} = useContext(MessageContext);
+  const { setMessage } = useContext(MessageContext);
   return (
     <Button onClick={() => setMessage("변경된 메세지")}>
       메세지 변경하기!!!
