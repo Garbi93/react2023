@@ -13,11 +13,20 @@ function App(props) {
   }
 
   function handleDoneButtonClick(id) {
+    // updateItems((draft) => {
+    //   const index = draft.findIndex((item) => item.id === id);
+    //   if (index !== -1) {
+    //     draft[index].done = true;
+    //   }
+    // });
+
+    // 선생님 버젼
+    console.log(id);
+    console.log(items);
     updateItems((draft) => {
-      const index = draft.findIndex((item) => item.id === id);
-      if (index !== -1) {
-        draft[index].done = true;
-      }
+      const target = draft.find((e) => e.id === id);
+      target.done = true;
+      // 배열 깊은 복사 -> immer로 사용
     });
   }
 
