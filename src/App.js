@@ -21,7 +21,7 @@ function App() {
 
   // message state를 CComp에 전달 하기 -> context를 사용 하여
   // 1. context 만들기 : createContext();
-  // 2. context에 state 넣기 : <Context.Provider value={state}></Context.Provider>
+  // 2. context에 state 넣기 : <Context.Provider value={state이름}></Context.Provider>
   // 3. tree안에 context사용하기
 
   return (
