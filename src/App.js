@@ -23,10 +23,11 @@ function App(props) {
     // 선생님 버젼
     console.log(id);
     console.log(items);
+    // 배열 깊은 복사 -> immer로 사용
     updateItems((draft) => {
+      // immer를 사용 했으면 얕은 복사로 사용 해도 깊은 복사가 이루어짐
       const target = draft.find((e) => e.id === id);
       target.done = true;
-      // 배열 깊은 복사 -> immer로 사용
     });
   }
 
