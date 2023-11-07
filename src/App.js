@@ -51,6 +51,7 @@ function App(props) {
       draft.email = e.target.value;
     });
   }
+  // immer와 state의 차이 입니다.
 
   return (
     <div>
