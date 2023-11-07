@@ -16,7 +16,7 @@ function AComp() {
   return <BComp />;
 }
 
-function App(props) {
+function App() {
   const [message, setMessage] = useState("");
 
   // message state를 CComp에 전달 하기 -> context를 사용 하여
