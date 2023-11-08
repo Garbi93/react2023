@@ -1,54 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Box, Select, Spinner, Text } from "@chakra-ui/react";
-import axios from "axios";
 
-function App() {
-  const [customerIdList, setCustomerIdList] = useState([]);
-  const [customerId, setCustomerId] = useState(0);
-  const [customer, setCustomer] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-
+function App(props) {
+  const [number, setNumber] = useState(0);
+  // useEffect 사용 시 자주 하는 실수
   useEffect(() => {
-    // 고객 번호들 가져오기
-    axios
-      .get("/api/main1/sub6")
-      .then((response) => setCustomerIdList(response.data));
-  }, []);
+    console.log("코드실행");
+    // useEffect 안에서 트리거 변수 -> number 를 변경하는 행위
+    // setNumber(number + 1); // trigger하는 값을 변경하면 안됨 -> 무한으로 요청을 보내게 됨
+  }, [number]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get("api/main1/sub4?id=" + customerId)
-      .then((response) => response.data)
-      .then((data) => setCustomer(data))
-      .catch((error) => setCustomer(null))
-      .finally(() => setIsLoading(false));
-  }, [customerId]);
-  return (
-    <div>
-      <Select
-        placeholder="고객 번호를 선택하세요"
-        onChange={(e) => setCustomerId(e.target.value)}
-      >
-        {/*option[value=$]{$}*10*/}
-        {customerIdList.map((id) => (
-          <option value={id}>{id}</option>
-        ))}
-      </Select>
-      <Box>
-        {isLoading && <Spinner />}
-        {isLoading || (
-          <>
-            {customer === null ? (
-              <Text>조회한 고객이 없습니다. 다른 번호를 선택해주세요</Text>
-            ) : (
-              <Text>고객 이름 : {customer.customerName}</Text>
-            )}
-          </>
-        )}
-      </Box>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
