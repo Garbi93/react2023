@@ -1,15 +1,58 @@
 import React, { useEffect, useState } from "react";
+import { Box, Button, Checkbox, Text } from "@chakra-ui/react";
 
-function App(props) {
+function MyComp({ color }) {
   const [number, setNumber] = useState(0);
-  // useEffect 사용 시 자주 하는 실수
-  useEffect(() => {
-    console.log("코드실행");
-    // useEffect 안에서 트리거 변수 -> number 를 변경하는 행위
-    // setNumber(number + 1); // trigger하는 값을 변경하면 안됨 -> 무한으로 요청을 보내게 됨
-  }, [number]);
 
-  return <div></div>;
+  useEffect(() => {
+    console.log(color + " : initial render");
+  }, []);
+
+  console.log(color + " : re render");
+  return (
+    <Box borderWidth={"10px"} borderColor={color}>
+      <Button onClick={() => setNumber(number + 1)}>증가</Button>
+      <Text>{number}</Text>
+    </Box>
+  );
+}
+
+function App() {
+  const [secondToggle, setSecondToggle] = useState(true);
+  const [goldToggle, setGoldToggle] = useState(true);
+  // 부모가 렌더링 될 때 자식도 렌더링 됨.
+
+  const [number, setNumber] = useState(0);
+
+  console.log("부모 re-render");
+  return (
+    <div>
+      <Box>
+        <Text>부모</Text>
+        <Button onClick={() => setNumber(number + 1)}>증가</Button>
+        <Text>{number}</Text>
+        <Checkbox
+          defaultChecked={true}
+          onChange={(e) => setSecondToggle(e.target.checked)}
+        ></Checkbox>
+        파란 박스 토글
+        <Checkbox
+          defaultChecked={true}
+          onChange={(e) => setGoldToggle(e.target.checked)}
+        ></Checkbox>
+        골드 박스 토글
+      </Box>
+      <Box>
+        <Text>자식들</Text>
+        <MyComp color={"red"} />
+        {secondToggle && <MyComp color={"blue"} />}
+
+        <Box sx={{ display: goldToggle ? "block" : "none" }}>
+          <MyComp color={"gold"} />
+        </Box>
+      </Box>
+    </div>
+  );
 }
 
 export default App;
